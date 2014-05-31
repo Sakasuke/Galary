@@ -1,0 +1,143 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Inc Real</title>
+        <link href="css/5-1.css" rel="stylesheet" type="text/css">
+        <link href="css/lyout5-1.css" rel="stylesheet" type="text/css">
+        <script>
+
+onload=function(){
+	document.onmousemove = 
+		 OnTargetDivMouseMove;
+
+	OnFishMove();
+}
+
+function Vector2() {
+	this.x = 0.0;
+	this.y = 0.0;
+	this.Add = function(v) {
+		this.x += v.x;
+		this.y += v.y;
+		return this;
+	};
+	this.Subtract = function(v) {
+		this.x -= v.x;
+		this.y -= v.y;
+		return this;
+	};
+	this.Multi = function(k) {
+		this.x *= k;
+		this.y *= k;
+		return this;
+	};
+	this.ToZero=function(){
+		this.x = 0;
+		this.y = 0;
+		return this;
+	};
+	this.Set=function(x,y) {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+	this.Copy=function(v){
+		this.x = v.x;
+		this.y = v.y;
+		return this;
+	}
+}
+
+var K = 13.0;
+var dt = 1.0 / 20.0;
+var M = 3.0;
+var Eta = 2*Math.sqrt(M*K);
+var fishAcceleration = new Vector2();
+var fishVerosity = new Vector2();
+var fishPos = new Vector2();
+var mousePos = new Vector2();
+
+function OnTargetDivMouseMove(e) {
+	if(!e) return;
+
+	mousePos.x = e.clientX;
+	mousePos.y = e.clientY;
+}
+
+function ToNumber(stylePxStr) {
+	return Math.floor(stylePxStr.substr( 0 , stylePxStr.length - 2 ) );
+}
+
+function OnFishMove() {
+	fishAcceleration.ToZero();
+	fishAcceleration.Add(
+		new Vector2()
+		.Copy(mousePos)
+		.Subtract(fishPos)
+		.Multi(K)
+		.Subtract( 
+			new Vector2()
+			.Copy(fishVerosity)
+			.Multi(Eta)
+		)
+		.Multi(M)
+	);
+	fishVerosity.Add(
+		new Vector2()
+		.Copy(fishAcceleration)
+		.Multi(dt)
+	);
+	var fishDiv = document.getElementById("targetDiv");
+
+	fishPos.Add(
+		new Vector2()
+		.Copy(fishVerosity)
+		.Multi(dt)
+	);
+
+	fishDiv.style.left = Math.floor(fishPos.x) + "px";		
+	fishDiv.style.top = Math.floor(fishPos.y) + "px";
+
+	setTimeout("OnFishMove()",dt * 1000.0 );
+}
+</script>
+    </head>
+    <body>
+         <!-- 画像の上で移動 -->
+            <div id="myDiv">
+                <div id="targetDiv" style="position:absolute;width:126px;height:47px;"><img src="images/sarry-re2.png"></div><!--targetDiv-->
+        </div><!--myDiv-->
+            
+        <div class="pagebody">
+            <div class="header">
+                <h1>Inc Real</h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#" >News</a></li>
+	                <li id="now"><a href="#" >Beauty</a></li>
+	                <li><a href="#" >Hobby</a></li>
+	                <li><a href="#" >IT</a></li>
+	                <li><a href="#" >Column</a></li>
+                </ul>
+            </div>
+            <div id="lead">
+            <p>Inc Realは就活やプログラミングのHOW TO、バイクなど私が興味があり欲知っているものを紹介していきます。</p>
+            </div>
+            <div id="update" class="links">
+                <h2>更新情報</h2>
+                <ul>
+                    <li><a href="#">C言語を学には</a></li>
+                    <li><a href="#">JAVAをやってみよう！</a></li>
+                    <li><a href="#">グロウフルール</a></li>
+                    <li><a href="#">YAMAHAのバイク</a></li>
+                    <li><a href="#">BMWの車</a></li>
+                </ul>
+            </div>
+            <div class="footer">
+                <address>Copy Right SAKASUKE <a href="#">Inc Real</a></address>
+            </div>
+        </div>
+    </body>
+</html>

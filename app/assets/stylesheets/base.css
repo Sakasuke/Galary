@@ -1,0 +1,155 @@
+@charset "utf-8";
+/*pra3.html,pra4*/
+/*ページの基本デザイン*/
+.header{
+    background-image: url(yuki-re.jpg);
+    height: 200px;
+    text-align: center;
+    line-height: 180px;
+    margin-bottom: 5px; 
+    padding: 0 10px;
+}
+body {
+    background-color: #f4f2ed;
+    margin:auto;
+    padding:0;
+    font-family: "メイリオ", Meiryo,"MS Pゴシック", Osaka, sans-serif;
+    color: #666;
+}
+h1 {
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: normal; /*文字の太さ*/
+}
+h1 a {
+    color: #fff;
+}
+h2{
+    margin: auto;
+    font-size: 110%;
+}
+h3 {
+    margin: auto;
+    font-size: 90%;
+}
+p {
+    margin: 0;
+    font-size: 90%;
+    line-height: 1.6; /*行間を文字サイズの1.6倍にする*/
+}
+address{
+    font-style: normal; /*アドレスタグで指定した部分は本来車体で表示されるのでノーマルに指定している*/
+    text-align: center; /*中央揃え*/
+    font-size: 90%;
+}
+a {
+    color: #01b2a8;
+    text-decoration: none;　/*下線*/
+}
+.article p img {
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 5px;
+}
+.article {
+    padding: 5px;
+    border: solid 1px #ccc;
+    margin: 10px;
+    min-height: 150px;
+    zoom: 1;
+}
+
+/* min-height に対応していないブラウザのための clearfixというCSSハックをする*/
+.article:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.nav {
+    padding:0 10px;
+}
+.nav ul {
+    font-family: Arial, Helvetica, sans-serif;;
+    letter-spacing: 2px; /*文字の間隔*/
+    margin: 0;
+    padding: 0;
+    list-style-type: none; /*リストの記号をなくす*/
+    text-align: right; /*メニュー全体を右側に揃える*/
+}
+.nav ul li {
+    display:inline-block ; /*ﾒﾆｭｰｦ横並びにする*/
+    padding: 0 5px;
+    border-left: 1px solid #037d77;
+}
+.nav ul li:first-child {
+    border-left: none; /*左端の区切りをなくす*/
+}
+.nav ul li#now a {
+    color: #037d77;
+    font-weight: bold;
+}
+.pagebody{
+    width: 1000px;
+    background-color: #fff;
+    margin: auto;
+}
+.twocol {
+    width: 100%;
+    float: left;
+    margin-right: -200px;
+}
+.section {
+    float: right;
+    width: 100%;
+    margin-left: -200px;
+}
+.aside {
+    /*float: left; /*レイアウト*/ /*左にサイドバーを表示する場合　rightを書く*/
+    width: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.side1 {
+    float: left;
+}
+.side2 {
+    float: right;
+}
+.main {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.aside h2 {
+    font-size: 90%;
+    margin-top: 5px;
+}
+.aside ul {
+    list-style-type: none;
+    font-size: 90%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /*行間*/
+}
+.aside ul li {
+    padding-left: 15px;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.ad {
+    margin-top: 10px;
+}
+.ad imag {
+    border: 0;
+}
+.footer {
+    clear:both; /*フッターはフロートをクリア*/
+}
+
