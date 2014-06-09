@@ -4,6 +4,7 @@
 .header{
     background-image: url(yuki-re.jpg);
     height: 200px;
+    max-width: 980px;
     text-align: center;
     line-height: 180px;
     margin-bottom: 5px; 
@@ -94,7 +95,7 @@ a {
     font-weight: bold;
 }
 .pagebody{
-    width: 1000px;
+    width: 85%;
     background-color: #fff;
     margin: auto;
 }
@@ -110,7 +111,7 @@ a {
 }
 .aside {
     /*float: left; /*レイアウト*/ /*左にサイドバーを表示する場合　rightを書く*/
-    width: 180px;
+    width: 160px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -121,7 +122,7 @@ a {
     float: right;
 }
 .main {
-    margin-left: 200px;
+    margin-left: 160px;
     margin-right: 200px;
     padding-left: 10px;
     padding-right: 10px;

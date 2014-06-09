@@ -1,8 +1,11 @@
 
-<%= form_tag({ :action => 'upload_process' }, :multipart => true) do %>
+<%= form_tag({ :action => 'upload_process' }, {:multipart => true}) do %>
 	
 	<label>ファイルを指定：	
-		<%= file_field_tag 'upfile', { :size => 100  }%></label>
+		<%= file_field_tag 'upfile[]', { :size => 100 , :multiple => true}  %></label>
 	<%= submit_tag 'アップロード'%>
 <% end %>
 <%# image_tag '' + @rand + '.jpg' , :width => 4592/9, :height => 3056/9 %>
+<br>
+<a href="./index">HOME</a>
+<a href="./viewer">ギャラリー</a>

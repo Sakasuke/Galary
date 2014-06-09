@@ -1,0 +1,33 @@
+<div id="myDiv">
+                <!-- <div id="backgroundDiv" style="background:url('./bg.png');position:absolute;top:250px;left:250px;width:640px;height:400;"></div> backgroundDiv-->
+                
+                <div id="targetDiv" style="position:absolute;width:126px;height:47px;"><img src="../assets/sarry-re2.png"></div><!--targetDiv-->
+                
+                
+</div><!--myDiv-->
+
+<%= form_tag({ :action => 'upload_process' }, :multipart => true) do %>
+	
+	<center>
+		<% for i in 0..2%>
+			<%= image_tag '' + @rand[i] + '.jpg' , :width => 4592/9, :height => 3056/9 %>
+		<% end %>
+	</center><br />
+	
+	<center>
+		<% for i in 3..7%>
+			<%= image_tag '' + @rand[i] + '.jpg' , :width => 4592/15, :height => 3056/15 %>
+		<% end %>
+	</center><br />
+	
+	<center>
+		<% for i in 8..14%>
+			<%= image_tag '' + @rand[i] + '.jpg' , :width => 4592/21, :height => 3056/21 %>
+		<% end %>
+	</center><br />
+	
+	
+<% end %>
+<br>
+<a href="./index">HOME</a>
+<a href="./upload">アップロード</a>
